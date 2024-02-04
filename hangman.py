@@ -1,3 +1,5 @@
+# http://tinyurl.com/h9q2cpc
+
 def hangman(word):
     wrong = 0
     stages = ["",
@@ -18,26 +20,22 @@ def hangman(word):
         msg = "1文字を予想してね"
         char = input(msg)
         if char in rletters:
-            cind = rletters \
-                   .index(char)
+            cind = rletters.index(char)
             board[cind] = char
             rletters[cind] = '$'
         else:
             wrong += 1
         print((" ".join(board)))
         e = wrong + 1
-        print("\n"
-              .join(stages[0: e]))
+        print("\n".join(stages[0: e]))
         if "__" not in board:
             print("あなたの勝ち！")
             print(" ".join(board))
             win = True
             break
     if not win:
-        print("\n"
-              .join(stages[0: \
-              wrong]))
-        print("あなたの負け！正解は {}."
-              .format(word))
+        print("\n".join(stages[0:wrong+1]))
+        print("あなたの負け！正解は {}.".format(word))
+
 
 hangman("cat")
